@@ -4,6 +4,14 @@
    </a>
 </p>
 
+Even though this repo is vastly belated, I’m glad I finally made it
+
+If you have any questions/suggestions/criticism, spot an error etc. please don’t hesitate to contact me via:
+* Email: fjeremicwork@gmail.com
+* Discord: Focho#1982
+
+Have fun!
+
 # Solution list
 
 | # | Problem | Solution | Languages |
