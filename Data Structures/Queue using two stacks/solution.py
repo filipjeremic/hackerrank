@@ -11,12 +11,12 @@ class Queue:
         self.dequeueStack = []
 
     def enqueue(self, value):
-        # amortized O(1)
+        # Amortized O(1)
         self.enqueueStack.append(value)
 
     def dequeue(self):
-        # amortized O(1)
-        # only transfer when the output stack is empty
+        # Amortized O(1)
+        # Only transfer when the output stack is empty
         self.__check_and_transfer()
         # checking again because the source stack can also be empty (we transferred nothing)
         if not self.dequeueStack:
@@ -35,7 +35,7 @@ class Queue:
             self.dequeueStack.append(self.enqueueStack.pop())
 
     def front(self):
-        # amortized O(1)
+        # Amortized O(1)
         self.__check_and_transfer()
         if not self.dequeueStack:
             return None
