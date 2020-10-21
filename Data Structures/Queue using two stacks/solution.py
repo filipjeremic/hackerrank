@@ -30,7 +30,7 @@ class Queue:
         self.__transfer()
 
     def __transfer(self):
-        # O(n), where n is the number of elements in enqueueStack
+        # Amortized O(n), where n is the number of elements in enqueueStack
         while self.enqueueStack:
             self.dequeueStack.append(self.enqueueStack.pop())
 
