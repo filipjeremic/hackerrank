@@ -24,7 +24,7 @@ class Queue:
         return self.dequeueStack.pop()
 
     def __check_and_transfer(self):
-        # O(n), where n is the number of elements in enqueueStack
+        # Amortized O(1)
         if self.dequeueStack:
             return
         self.__transfer()
