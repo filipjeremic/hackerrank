@@ -23,7 +23,7 @@ class Queue {
     }
 
     transfer() {
-        // O(n), where n is the number of elements in enqueueStack
+        // Amortized O(n), where n is the number of elements in enqueueStack
         while (this.enqueueStack.length) {
             this.dequeueStack.push(this.enqueueStack.pop());
         }
