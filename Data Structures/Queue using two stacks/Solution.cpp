@@ -11,6 +11,7 @@ class Queue
 
     void transfer()
     {
+        // Amortized O(n), where n is the number of elements in enqueueStack
         while (!m_enqueueStack.empty())
         {
             const int value = m_enqueueStack.top();
@@ -21,6 +22,7 @@ class Queue
 
     void checkAndTransfer()
     {
+        // Amortized O(1)
         // only transfer when the output stack is empty
         if (!m_dequeueStack.empty())
         {
@@ -33,11 +35,13 @@ class Queue
 public:
     void enqueue(const int value)
     {
+        // Amortized O(1)
         m_enqueueStack.push(value);
     }
 
     int dequeue()
     {
+        // Amortized O(1)
         checkAndTransfer();
 
         // checking again because the enqueue stack can also be empty (we transferred nothing)
@@ -53,6 +57,7 @@ public:
 
     int front()
     {
+        // Amortized O(1)
         checkAndTransfer();
 
         if (m_dequeueStack.empty())
