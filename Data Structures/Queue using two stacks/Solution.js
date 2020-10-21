@@ -1,30 +1,36 @@
 class Queue {
     constructor() {
+        // O(1)
         this.enqueueStack = [];
         this.dequeueStack = [];
     }
 
     enqueue(value) {
+        // Amortized O(1)
         this.enqueueStack.push(value);
     }
 
     dequeue() {
+        // Amortized O(1)
         this.check_and_transfer();
         return this.dequeueStack.pop();
     }
 
     check_and_transfer() {
+        // Amortized O(1)
         if (this.dequeueStack.length) return;
         this.transfer();
     }
 
     transfer() {
+        // O(n), where n is the number of elements in enqueueStack
         while (this.enqueueStack.length) {
             this.dequeueStack.push(this.enqueueStack.pop());
         }
     }
 
     front() {
+        // Amortized O(1)
         this.check_and_transfer();
         return this.dequeueStack[this.dequeueStack.length - 1];
     }
