@@ -1,11 +1,11 @@
-// Note - a recursive solution won't work here (stack overflow)
-// Check out the other languages for a recursive solution
-
 /*
+
 Iterative solution
 
 Time complexity: O(n)
 Space complexity: O(1)
+
+Note - a recursive solution won't work here (stack overflow)
 
 The logic:
     - every value that you use, the adjacent one you can't
@@ -15,6 +15,7 @@ The logic:
     - for positive values you have to check what's larger, max_sum(i - 2) + value or max_sum(i - 1)
     - if max_sum(i - 2) + value is larger you consider the value (here you have to swap the sums because you added a value)
     - if max_sum(i - 1) is larger you don't consider value
+
 */
 
 'use strict';
