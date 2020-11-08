@@ -24,8 +24,11 @@ The logic:
 #include <memory>
 #include <algorithm>
 
-std::vector<std::pair<int, int>> readData(const int n)
+std::vector<std::pair<int, int>> readData()
 {
+    int n = 0;
+    std::cin >> n;
+
     std::vector<std::pair<int, int>> data;
     data.reserve(n);
 
@@ -119,10 +122,7 @@ std::pair<int, int> componentsInGraph(const std::vector<std::pair<int, int>> dat
 
 int main()
 {
-    int n = 0;
-    std::cin >> n;
-
-    const auto data = readData(n);
+    const auto data = readData();
 
     const auto result = componentsInGraph(data);
 
