@@ -40,7 +40,7 @@ def components_in_graph(data):
                 l_large.append(i)
             continue
 
-        value_to_insert, where_to_insert = b if has_a else a, m[a] if has_a else m[b]
+        value_to_insert, where_to_insert = b if has_a else a, m[a if has_a else b]
         where_to_insert.append(value_to_insert)
         m[value_to_insert] = where_to_insert
 
