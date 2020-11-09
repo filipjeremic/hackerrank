@@ -4,7 +4,7 @@
    </a>
 </p>
 
-Even though this repo is vastly belated, I’m glad I finally made it
+Even though this repo is vastly belated, I’m glad I finally made it. I did more challenges than in this list so if you want to see a specific challenge just send me a message. Chances are that I already did it, or, if not, will do it when I have time. I won’t be uploading solutions to exceptionally easy challenges unless requested.
 
 If you have any questions/suggestions/criticism, spot an error etc. please don’t hesitate to contact me via:
 * Email: fjeremicwork@gmail.com
