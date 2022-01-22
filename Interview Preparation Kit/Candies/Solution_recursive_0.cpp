@@ -15,9 +15,9 @@ Space complexity: O(n)
 
 #include <bits/stdc++.h>
 
+using namespace std;
 
-
-std::pair<long, int> candiesRecursive0(const std::vector<int> &arr, const size_t index, const int prevCandy)
+pair<long, int> candiesRecursive0(const vector<int> &arr, const size_t index, const int prevCandy)
 {
     const auto n = arr.size();
 
@@ -26,11 +26,9 @@ std::pair<long, int> candiesRecursive0(const std::vector<int> &arr, const size_t
     const int prevBound = ((index > 0) && (arr[index] > arr[index - 1])) ? prevCandy + 1 : 1;
     const auto next = candiesRecursive0(arr, index + 1, prevBound);
     const int nextBound = ((index < n - 1) && (arr[index] > arr[index + 1])) ? next.second + 1 : 1;
-    const auto myCandyCount = std::max(prevBound, nextBound);
+    const auto myCandyCount = max(prevBound, nextBound);
     return {next.first + myCandyCount, myCandyCount};
 }
-
-using namespace std;
 
 // Complete the candies function below.
 long candies(int n, vector<int> arr)
