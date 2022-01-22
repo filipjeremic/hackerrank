@@ -1,5 +1,3 @@
-#include <bits/stdc++.h>
-
 /*
 
 The logic:
@@ -14,6 +12,10 @@ Time complexity: O(n)
 Space complexity: O(n)
 
 */
+
+#include <bits/stdc++.h>
+
+
 
 std::pair<long, int> candiesRecursive0(const std::vector<int> &arr, const size_t index, const int prevCandy)
 {
