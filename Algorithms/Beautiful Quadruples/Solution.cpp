@@ -66,9 +66,9 @@ in every iteration except the index of the iteration (since A XOR A = 0).
 #include <numeric>
 #include <vector>
 
-auto getNextPow2(const unsigned int n)
+auto getNextPow2(const uint64_t n)
 {
-  unsigned int result = 1;
+  uint64_t result = 1;
 
   while (result <= n)
   {
