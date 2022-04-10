@@ -4,8 +4,13 @@
 #include <numeric>
 #include <vector>
 
-auto getNextPow2(const uint64_t n)
+uint64_t getNextPow2(const uint64_t n)
 {
+  if (n == 0)
+  {
+    return 1;
+  }
+
   uint64_t result = 1;
 
   while (result <= n)
