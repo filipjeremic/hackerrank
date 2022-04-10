@@ -32,7 +32,7 @@ The carry vector contains the number of XOR values for each iteration
 of each input value. An example should make it clearer:
 
   Lets say that the next input value is 3. The carry vector could look like this:
-  
+
       0  1  2  3  4  5
   0 | 0  0  0  0  0  0
   1 | 1  2  0  1  3  0
@@ -50,7 +50,7 @@ So if the next value is, say, 3, we would have:
   Iteration 1: takes values from 1, 2 and 3 (>= 1)
   Iteration 2: takes values from 2 and 3 (>= 2)
   Iteration 3: takes values from 3 (>=3)
-  
+
 This is how the values are accumulated.
 
 In the end, getting the result is easy. After we have all the accumulated
