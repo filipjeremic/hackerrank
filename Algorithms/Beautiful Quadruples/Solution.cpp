@@ -21,67 +21,67 @@ uint64_t getNextPow2(const uint64_t n)
   return result;
 }
 
-auto getInitialCarryVector(const uint64_t small, const uint64_t large)
+auto getInitialCarryMatrix(const uint64_t lowValue, const uint64_t highValue)
 {
-  const std::size_t N = getNextPow2(large);
+  const std::size_t N = getNextPow2(highValue);
 
-  std::vector<std::vector<uint64_t>> carryVector(small + 1, std::vector<uint64_t>(N, 0));
+  std::vector<std::vector<uint64_t>> carryMatrix(lowValue + 1, std::vector<uint64_t>(N, 0));
 
-  for (std::size_t i = 1; i <= small; i++)
+  for (std::size_t i = 1; i <= lowValue; i++)
   {
-    for (std::size_t j = i; j <= large; j++)
+    for (std::size_t j = i; j <= highValue; j++)
     {
-      carryVector[i][i ^ j] = 1;
+      carryMatrix[i][i ^ j] = 1;
     }
   }
 
-  return carryVector;
+  return carryMatrix;
 }
 
-void reduceVector(std::vector<std::vector<uint64_t>> &carryVector)
+void reduceMatrix(std::vector<std::vector<uint64_t>> &carryMatrix)
 {
-  const auto rows = carryVector.size();
-  const auto cols = carryVector[0].size();
+  const auto rows = carryMatrix.size();
+  const auto cols = carryMatrix[0].size();
 
   for (std::size_t i = rows - 1; i > 1; i--)
   {
     for (std::size_t j = 0; j < cols; j++)
     {
-      carryVector[i - 1][j] += carryVector[i][j];
+      carryMatrix[i - 1][j] += carryMatrix[i][j];
     }
   }
 }
 
-auto xorCarryVector(const std::size_t B, const std::vector<std::vector<uint64_t>> &carryVector)
+auto xorCarryMatrix(const std::size_t B, const std::vector<std::vector<uint64_t>> &carryMatrix)
 {
-  const std::size_t N = carryVector[0].size();
+  const std::size_t N = carryMatrix[0].size();
 
-  std::vector<std::vector<uint64_t>> xorVector(B + 1, std::vector<uint64_t>(N, 0));
+  std::vector<std::vector<uint64_t>> xorMatrix(B + 1, std::vector<uint64_t>(N, 0));
 
   for (std::size_t i = 1; i <= B; i++)
   {
     for (std::size_t j = 0; j < N; j++)
     {
-      if (carryVector[i][j] == 0)
+      if (carryMatrix[i][j] == 0)
       {
         continue;
       }
 
-      xorVector[i][i ^ j] = carryVector[i][j];
+      xorMatrix[i][i ^ j] = carryMatrix[i][j];
     }
   }
 
-  return xorVector;
+  return xorMatrix;
 }
 
-uint64_t calculateResult(const std::size_t A, const std::vector<std::vector<uint64_t>> &xorVector)
+uint64_t calculateResult(const std::size_t A, const std::vector<std::vector<uint64_t>> &xorMatrix)
 {
   uint64_t result = 0;
 
   for (std::size_t i = 1; i <= A; i++)
   {
-    result += std::accumulate(xorVector[i].cbegin(), xorVector[i].cend(), static_cast<uint64_t>(0));
-    result -= xorVector[i][i];
+    result += std::accumulate(xorMatrix[i].cbegin(), xorMatrix[i].cend(), static_cast<uint64_t>(0));
+    result -= xorMatrix[i][i];
   }
 
   return result;
@@ -97,13 +97,13 @@ int main()
 
   std::sort(std::begin(values), std::end(values));
 
-  auto carryVector = getInitialCarryVector(values[2], values[3]);
-  reduceVector(carryVector);
+  auto carryMatrix = getInitialCarryMatrix(values[2], values[3]);
+  reduceMatrix(carryMatrix);
 
-  carryVector = xorCarryVector(values[1], carryVector);
-  reduceVector(carryVector);
+  carryMatrix = xorCarryMatrix(values[1], carryMatrix);
+  reduceMatrix(carryMatrix);
 
-  std::cout << calculateResult(values[0], carryVector) << std::endl;
+  std::cout << calculateResult(values[0], carryMatrix) << std::endl;
 
   return 0;
 }
