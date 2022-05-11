@@ -25,17 +25,17 @@ auto getInitialCarryMatrix(const uint64_t lowValue, const uint64_t highValue)
 {
   const std::size_t N = getNextPow2(highValue);
 
-  std::vector<std::vector<uint64_t>> carryMatrix(lowValue + 1, std::vector<uint64_t>(N, 0));
+  std::vector<std::vector<uint64_t>> initialCarryMatrix(lowValue + 1, std::vector<uint64_t>(N, 0));
 
   for (std::size_t i = 1; i <= lowValue; i++)
   {
     for (std::size_t j = i; j <= highValue; j++)
     {
-      carryMatrix[i][i ^ j] = 1;
+      initialCarryMatrix[i][i ^ j] = 1;
     }
   }
 
-  return carryMatrix;
+  return initialCarryMatrix;
 }
 
 void reduceMatrix(std::vector<std::vector<uint64_t>> &carryMatrix)
