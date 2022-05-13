@@ -9,8 +9,8 @@ The logic:
 
 Dynamic programming solution. In essence, we keep XOR-ing and
 transferring the result to the next input value. Since there
-are only 4 input values I decided not to write a loop. In my
-version there are 4 steps:
+are only 4 input values, I've decided not to write a loop.
+In my version there are 4 steps:
 
   1) sort the input values
   2) XOR values 3 and 4 to get the carry vector
