@@ -60,11 +60,6 @@ class Solution
     {
       for (int j = 0; j < N; j++)
       {
-        if (carryMatrix[i, j] == 0)
-        {
-          continue;
-        }
-
         xorMatrix[i, i ^ j] = carryMatrix[i, j];
       }
     }

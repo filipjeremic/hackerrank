@@ -45,10 +45,6 @@ public class Solution {
 
     for (int i = 1; i <= B; i++) {
       for (int j = 0; j < N; j++) {
-        if (carryMatrix[i][j] == 0) {
-          continue;
-        }
-
         xorMatrix[i][i ^ j] = carryMatrix[i][j];
       }
     }

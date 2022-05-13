@@ -62,11 +62,6 @@ auto xorCarryMatrix(const std::size_t B, const std::vector<std::vector<uint64_t>
   {
     for (std::size_t j = 0; j < N; j++)
     {
-      if (carryMatrix[i][j] == 0)
-      {
-        continue;
-      }
-
       xorMatrix[i][i ^ j] = carryMatrix[i][j];
     }
   }
