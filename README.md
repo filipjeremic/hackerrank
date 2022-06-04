@@ -26,5 +26,5 @@ Have fun!
 | 6 | [Components in a graph](https://www.hackerrank.com/challenges/components-in-graph/problem) | [Link](https://github.com/filipjeremic/hackerrank/tree/main/Data%20Structures/Components%20in%20a%20graph) | C++, Python3, JavaScript, Java, C# |
 | 7 | [A or B](https://www.hackerrank.com/challenges/aorb/problem) | [Link](https://github.com/filipjeremic/hackerrank/tree/main/Algorithms/A%20or%20B) | JavaScript, Java, Python3, C++ |
 | 8 | [Gena Playing Hanoi](https://www.hackerrank.com/challenges/gena/problem) | [Link](https://github.com/filipjeremic/hackerrank/tree/main/Algorithms/Gena%20Playing%20Hanoi) | C++ |
-| 9 | [Red Knight's Shortest Path](https://www.hackerrank.com/challenges/red-knights-shortest-path/problem) | [Link](https://github.com/filipjeremic/hackerrank/tree/main/Algorithms/Red%20Knight's%20Shortest%20Path) | Go, C++, Java, C# |
+| 9 | [Red Knight's Shortest Path](https://www.hackerrank.com/challenges/red-knights-shortest-path/problem) | [Link](https://github.com/filipjeremic/hackerrank/tree/main/Algorithms/Red%20Knight's%20Shortest%20Path) | Go, C++, Java, C#, JavaScript |
 | 10 | [Beautiful Quadruples](https://www.hackerrank.com/challenges/xor-quadruples/problem) | [Link](https://github.com/filipjeremic/hackerrank/tree/main/Algorithms/Beautiful%20Quadruples) | C++, Java, C#, JavaScript, Go, Python3 |
