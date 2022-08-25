@@ -1,0 +1,20 @@
+Time complexity: O(n) - each node is visited
+Space complexity: O(n) - because of the map, not because of the recursion
+
+This is a fairly straightforward tree problem (solved using recursion).
+
+The task is to remove as many edges as possible - in other words to divide
+the tree as much as possible.
+
+The logic:
+
+Go down the tree to the leaves. On the way back add the results from all
+children and either carry over the number of children in a subtree (when the
+number of nodes in the subtree is odd) or disconnect the tree (when the number
+of nodes in the subtree is even). So, basically, two cases:
+  - odd number of children in the subtree: can't disconnect, carry over the
+    number of children to your parent (result is unchanged)
+  - even number of children in the subtree: can disconnect, this children count
+    is dropped now and the result is incremented by 1
+
+In the end just return the result from the root.
