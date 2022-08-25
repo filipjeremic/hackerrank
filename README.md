@@ -10,9 +10,7 @@ If you have any questions/suggestions/criticism, spot an error etc. please donâ€
 * Email: fjeremicwork@gmail.com
 * Discord: Focho#1982
 
-Note: all the C++ solutions are C++14 because that is the latest version which is supported by HackerRank
-
-Have fun!
+Thank you for visiting the page! I hope you have fun and learn something!
 
 # Solution list
 
