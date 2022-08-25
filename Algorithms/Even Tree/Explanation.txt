@@ -17,4 +17,4 @@ of nodes in the subtree is even). So, basically, two cases:
   - even number of children in the subtree: can disconnect, this children count
     is dropped now and the result is incremented by 1
 
-In the end just return the result from the root.
+In the end just return the result from the root (by definition, node 1 is always the root).
