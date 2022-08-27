@@ -26,4 +26,4 @@ Thank you for visiting the page! I hope you have fun and learn something!
 | 8 | [Gena Playing Hanoi](https://www.hackerrank.com/challenges/gena/problem) | [Link](https://github.com/filipjeremic/hackerrank/tree/main/Algorithms/Gena%20Playing%20Hanoi) | C++ |
 | 9 | [Red Knight's Shortest Path](https://www.hackerrank.com/challenges/red-knights-shortest-path/problem) | [Link](https://github.com/filipjeremic/hackerrank/tree/main/Algorithms/Red%20Knight's%20Shortest%20Path) | Go, C++, Java, C#, JavaScript, Python3 |
 | 10 | [Beautiful Quadruples](https://www.hackerrank.com/challenges/xor-quadruples/problem) | [Link](https://github.com/filipjeremic/hackerrank/tree/main/Algorithms/Beautiful%20Quadruples) | C++, Java, C#, JavaScript, Go, Python3 |
-| 11 | [Even Tree](https://www.hackerrank.com/challenges/even-tree/problem) | [Link](https://github.com/filipjeremic/hackerrank/tree/main/Algorithms/Even%20Tree) | Go, C++, C#, Java |
+| 11 | [Even Tree](https://www.hackerrank.com/challenges/even-tree/problem) | [Link](https://github.com/filipjeremic/hackerrank/tree/main/Algorithms/Even%20Tree) | Go, C++, C#, Java, JavaScript |
