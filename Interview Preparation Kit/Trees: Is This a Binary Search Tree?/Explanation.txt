@@ -1,0 +1,12 @@
+Naturally, since it’s a tree problem, the solution is recursive
+
+The logic - traverse the tree with bounds checking. While going down the
+left path, everything must be smaller than the parent node (or root).
+While going down the right path, everything must be larger than the
+parent node (or root).
+
+The tree, itself, needs O(n) space
+
+Algorithm complexities:
+  - time: O(n), because all elements have to be checked
+  - space: O(n), if the tree were balanced this would be log(n)
