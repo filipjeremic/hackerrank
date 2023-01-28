@@ -1,18 +1,16 @@
-/*
-
-Recursive solution (naturally, since it’s a tree problem)
-
-The logic – basically, just bounds checking
-
-Time complexity: O(n)
-Space complexity: O(n) - for a balanced BST we would have log(n) here
-
-*/
-
-bool checkBST(const Node *const root, const int min, const int max)
+bool checkBST(const Node *const node, const int minValue, const int maxValue)
 {
-    if (root == nullptr) return true;
-    return root->data > min && root->data < max && checkBST(root->left, min, root->data) && checkBST(root->right, root->data, max);
+    if (node == nullptr)
+    {
+        return true;
+    }
+
+    return (
+        node->data > minValue &&
+        node->data < maxValue &&
+        checkBST(node->left, minValue, node->data) &&
+        checkBST(node->right, node->data, maxValue)
+    );
 }
 
 bool checkBST(const Node *const root)
