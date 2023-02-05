@@ -1,7 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.LongStream;
-import java.lang.Math;
 
 public class Solution {
     static long candies(int[] ratings) {
@@ -17,8 +16,8 @@ public class Solution {
         }
 
         for (int i = n - 2; i >= 0; i--) {
-            if (ratings[i] > ratings[i + 1]) {
-                candy[i] = Math.max(candy[i], candy[i + 1] + 1);
+            if ((ratings[i] > ratings[i + 1]) && (candy[i] < (candy[i + 1] + 1))) {
+                candy[i] = candy[i + 1] + 1;
             }
         }
 
@@ -30,8 +29,10 @@ public class Solution {
 
         final int n = scanner.nextInt();
         final int[] arr = new int[n];
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) {
             arr[i] = scanner.nextInt();
+        }
+
         scanner.close();
 
         System.out.println(candies(arr));
