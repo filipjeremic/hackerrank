@@ -105,10 +105,6 @@ func solution(initialState *State) int {
 
 	visitedStates := map[string]*State{initialState.String(): initialState}
 
-	initCopy := initialState.copy()
-	visitedStates[initCopy.String()] = initCopy
-	visitedStates[initialState.String()] = initialState
-
 	for currentState := range stateQueue {
 		currentStep := currentState.step
 		if currentState.isGoalState() {
