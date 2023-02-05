@@ -4,23 +4,48 @@
 
 #include <bits/stdc++.h>
 
-std::pair<long, int> candiesRecursive1(const std::vector<int> &arr, const size_t index, const int prevCandy)
+using namespace std;
+
+string ltrim(const string &str)
+{
+    string s(str);
+
+    s.erase(
+        s.begin(),
+        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace))));
+
+    return s;
+}
+
+string rtrim(const string &str)
+{
+    string s(str);
+
+    s.erase(
+        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
+        s.end());
+
+    return s;
+}
+
+pair<long, int> candiesRecursive1(const vector<int> &arr, const size_t index, const int prevCandy)
 {
     const auto n = arr.size();
 
-    if (index == n - 1) return {0, 1};
+    if (index == n - 1)
+    {
+        return {0, 1};
+    }
 
     const int prevBound = (arr[index] > arr[index - 1]) ? prevCandy + 1 : 1;
     const auto next = candiesRecursive1(arr, index + 1, prevBound);
     const int nextBound = (arr[index] > arr[index + 1]) ? next.second + 1 : 1;
-    const auto myCandyCount = std::max(prevBound, nextBound);
+    const auto myCandyCount = max(prevBound, nextBound);
+
     return {next.first + myCandyCount, myCandyCount};
 }
 
-using namespace std;
-
-// Complete the candies function below.
-long candies(int n, vector<int> arr)
+long candies(int n, const vector<int> &arr)
 {
     return candiesRecursive1(arr, 1, 1).first;
 }
@@ -38,7 +63,8 @@ int main()
     vector<int> arr(n, 1);
     arr[0] = arr[n - 1] = 100000;
 
-    for (int i = 1; i < n - 1; i++) {
+    for (int i = 1; i < n - 1; i++)
+    {
         int arr_item;
         cin >> arr_item;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
