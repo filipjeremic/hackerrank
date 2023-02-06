@@ -7,7 +7,7 @@
 Even though this repo is vastly belated I’m glad I finally made it. I did many more challenges than in this list so if you want me to upload the solution to a specific challenge just send me a message. Chances are I already did it. If not, I will try to solve and explain it asap.
 
 If you have any questions/suggestions/criticism, spot an error etc. please don’t hesitate to contact me via:
-* Email: fjeremicwork@gmail.com
+* Email: filipjeremic.dev@gmail.com
 * Discord: Focho#1982
 
 Thank you for visiting the page! I hope you have fun and learn something!
