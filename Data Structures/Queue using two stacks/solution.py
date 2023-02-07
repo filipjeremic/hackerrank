@@ -1,41 +1,37 @@
 #!/usr/bin/python3.8
 
-# The solution is NOT thread safe (it is not required)
 
 class Queue:
-
+    # O(1)
     def __init__(self):
-        # O(1)
-        # One stack for input and one for output
         self.enqueueStack = []
         self.dequeueStack = []
 
+    # Amortized O(1)
     def enqueue(self, value):
-        # Amortized O(1)
         self.enqueueStack.append(value)
 
+    # Amortized O(1) - only transfer when the output stack is empty
     def dequeue(self):
-        # Amortized O(1)
-        # Only transfer when the output stack is empty
         self.__check_and_transfer()
         # checking again because the source stack can also be empty (we transferred nothing)
         if not self.dequeueStack:
             return None
         return self.dequeueStack.pop()
 
+    # Amortized O(1)
     def __check_and_transfer(self):
-        # Amortized O(1)
         if self.dequeueStack:
             return
         self.__transfer()
 
+    # Amortized O(n), where n is the number of elements in enqueueStack
     def __transfer(self):
-        # Amortized O(n), where n is the number of elements in enqueueStack
         while self.enqueueStack:
             self.dequeueStack.append(self.enqueueStack.pop())
 
+    # Amortized O(1)
     def front(self):
-        # Amortized O(1)
         self.__check_and_transfer()
         if not self.dequeueStack:
             return None
@@ -43,13 +39,12 @@ class Queue:
 
 
 if __name__ == "__main__":
-
     q = Queue()
 
     n = int(input())
 
     for i in range(n):
-        arr = list(map(int, input().strip().split(' ')))
+        arr = list(map(int, input().strip().split(" ")))
 
         if arr[0] == 2:
             q.dequeue()
