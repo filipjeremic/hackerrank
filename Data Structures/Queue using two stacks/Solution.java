@@ -7,16 +7,15 @@ public class Solution {
         private Stack<Integer> m_enqueueStack = new Stack<Integer>();
         private Stack<Integer> m_dequeueStack = new Stack<Integer>();
 
+        // Amortized O(n), where n is the number of elements in enqueueStack
         private void transfer() {
-            // Amortized O(n), where n is the number of elements in enqueueStack
             while (!m_enqueueStack.empty()) {
                 m_dequeueStack.push(m_enqueueStack.pop());
             }
         }
 
+        // Amortized O(1) - only transfer when the output stack is empty
         private void checkAndTransfer() {
-            // Amortized O(1)
-            // only transfer when the output stack is empty
             if (!m_dequeueStack.empty()) {
                 return;
             }
@@ -24,19 +23,19 @@ public class Solution {
             transfer();
         }
 
+        // Amortized O(1)
         public void enqueue(final int value) {
-            // Amortized O(1)
             m_enqueueStack.push(value);
         }
 
+        // Amortized O(1)
         public int dequeue() {
-            // Amortized O(1)
             checkAndTransfer();
             return m_dequeueStack.pop();
         }
 
+        // Amortized O(1)
         public int front() {
-            // Amortized O(1)
             checkAndTransfer();
             return m_dequeueStack.peek();
         }
