@@ -3,7 +3,7 @@
 # Note - a recursive solution won't work here (stack overflow)
 
 
-def maxSubsetSum(arr):
+def max_subset_sum(arr):
     sum_with_current = sum_with_previous = 0
 
     for x in arr:
@@ -25,4 +25,4 @@ def maxSubsetSum(arr):
 if __name__ == "__main__":
     input()
     arr = list(map(int, input().rstrip().split()))
-    print(maxSubsetSum(arr))
+    print(max_subset_sum(arr))
