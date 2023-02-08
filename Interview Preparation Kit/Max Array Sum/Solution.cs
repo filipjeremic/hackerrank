@@ -4,30 +4,30 @@ class Solution
 {
   private static int maxSubsetSum(ref int[] arr)
   {
-    var (appendable, notAppendable) = (0, 0);
+    var (sumWithCurrent, sumWithPrevious) = (0, 0);
 
     foreach (int x in arr)
     {
       if (x <= 0)
       {
-        appendable = notAppendable = Math.Max(appendable, notAppendable);
+        sumWithCurrent = sumWithPrevious = Math.Max(sumWithCurrent, sumWithPrevious);
         continue;
       }
 
-      appendable += x;
+      sumWithCurrent += x;
 
-      if (notAppendable >= appendable)
+      if (sumWithPrevious >= sumWithCurrent)
       {
-        appendable = notAppendable;
+        sumWithCurrent = sumWithPrevious;
         continue;
       }
 
-      int temp = appendable;
-      appendable = notAppendable;
-      notAppendable = temp;
+      int temp = sumWithCurrent;
+      sumWithCurrent = sumWithPrevious;
+      sumWithPrevious = temp;
     }
 
-    return Math.Max(appendable, notAppendable);
+    return Math.Max(sumWithCurrent, sumWithPrevious);
   }
 
   static void Main(string[] args)

@@ -30,28 +30,28 @@ function readLine()
 // Note: a recursive solution won't work here (stack overflow)
 function maxSubsetSum(arr)
 {
-    let [appendable, notAppendable] = [0, 0];
+    let [sumWithCurrent, sumWithPrevious] = [0, 0];
 
     for (const x of arr)
     {
         if (x <= 0)
         {
-            appendable = notAppendable = Math.max(appendable, notAppendable);
+            sumWithCurrent = sumWithPrevious = Math.max(sumWithCurrent, sumWithPrevious);
             continue;
         }
 
-        appendable += x;
+        sumWithCurrent += x;
 
-        if (notAppendable >= appendable)
+        if (sumWithPrevious >= sumWithCurrent)
         {
-            appendable = notAppendable;
+            sumWithCurrent = sumWithPrevious;
             continue;
         }
 
-        [appendable, notAppendable] = [notAppendable, appendable];
+        [sumWithCurrent, sumWithPrevious] = [sumWithPrevious, sumWithCurrent];
     }
 
-    return Math.max(appendable, notAppendable);
+    return Math.max(sumWithCurrent, sumWithPrevious);
 }
 
 function main()

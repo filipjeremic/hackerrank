@@ -3,27 +3,27 @@
 #include <vector>
 
 int maxSubsetSum(const std::vector<int> &arr) {
-  int appendable = 0;
-  int notAppendable = 0;
+  int sumWithCurrent = 0;
+  int sumWithPrevious = 0;
 
   std::for_each(
-      arr.cbegin(), arr.cend(), [&appendable, &notAppendable](const int x) {
+      arr.cbegin(), arr.cend(), [&sumWithCurrent, &sumWithPrevious](const int x) {
         if (x <= 0) {
-          appendable = notAppendable = std::max(appendable, notAppendable);
+          sumWithCurrent = sumWithPrevious = std::max(sumWithCurrent, sumWithPrevious);
           return;
         }
 
-        appendable += x;
+        sumWithCurrent += x;
 
-        if (notAppendable >= appendable) {
-          appendable = notAppendable;
+        if (sumWithPrevious >= sumWithCurrent) {
+          sumWithCurrent = sumWithPrevious;
           return;
         }
 
-        std::swap(appendable, notAppendable);
+        std::swap(sumWithCurrent, sumWithPrevious);
       });
 
-  return std::max(appendable, notAppendable);
+  return std::max(sumWithCurrent, sumWithPrevious);
 }
 
 int main() {

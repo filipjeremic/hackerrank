@@ -4,22 +4,22 @@
 
 
 def maxSubsetSum(arr):
-    appendable = notAppendable = 0
+    sum_with_current = sum_with_previous = 0
 
     for x in arr:
         if x <= 0:
-            appendable = notAppendable = max(appendable, notAppendable)
+            sum_with_current = sum_with_previous = max(sum_with_current, sum_with_previous)
             continue
 
-        appendable += x
+        sum_with_current += x
 
-        if notAppendable >= appendable:
-            appendable = notAppendable
+        if sum_with_previous >= sum_with_current:
+            sum_with_current = sum_with_previous
             continue
 
-        appendable, notAppendable = notAppendable, appendable
+        sum_with_current, sum_with_previous = sum_with_previous, sum_with_current
 
-    return max(appendable, notAppendable)
+    return max(sum_with_current, sum_with_previous)
 
 
 if __name__ == "__main__":
