@@ -10,3 +10,5 @@ The tree, itself, needs O(n) space
 Algorithm complexities:
   - time: O(n), because all elements have to be checked
   - space: O(n), if the tree were balanced this would be log(n)
+
+Note: some hidden code stubs don't work (thus the reading of input data and forming of the tree)
