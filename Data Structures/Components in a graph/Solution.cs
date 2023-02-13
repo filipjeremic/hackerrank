@@ -3,90 +3,102 @@ using System.Collections.Generic;
 
 class Solution
 {
-    static private List<Tuple<int, int>> readData()
+  static private List<Tuple<int, int>> readData()
+  {
+    int n = Convert.ToInt32(Console.ReadLine());
+    var data = new List<Tuple<int, int>>(n);
+
+    for (int i = 0; i < n; i++)
     {
-        int n = Convert.ToInt32(Console.ReadLine());
-        var gb = new List<Tuple<int, int>>(n);
-        for (int i = 0; i < n; i++)
+      int[] pair = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+      data.Add(Tuple.Create(pair[0], pair[1]));
+    }
+
+    return data;
+  }
+
+  static private Tuple<int, int> getMinMaxListSize(Dictionary<int, LinkedList<int>> m)
+  {
+    int minSize = int.MaxValue;
+    int maxSize = int.MinValue;
+
+    foreach (var e in m)
+    {
+      int currentSize = e.Value.Count;
+      if (currentSize < minSize)
+      {
+        minSize = currentSize;
+      }
+
+      if (currentSize > maxSize)
+      {
+        maxSize = currentSize;
+      }
+    }
+
+    return Tuple.Create(minSize, maxSize);
+  }
+
+  static private Tuple<int, int> componentsInGraph(List<Tuple<int, int>> data)
+  {
+    var m = new Dictionary<int, LinkedList<int>>();
+
+    foreach (var pair in data)
+    {
+      int a = pair.Item1;
+      int b = pair.Item2;
+
+      bool hasA = m.ContainsKey(a);
+      bool hasB = m.ContainsKey(b);
+
+      if (!hasA && !hasB)
+      {
+        var newList = new LinkedList<int>(new int[] { a, b });
+
+        m.Add(a, newList);
+        m.Add(b, newList);
+
+        continue;
+      }
+
+      if (hasA && hasB)
+      {
+        var listA = m[a];
+        var listB = m[b];
+
+        if (listA == listB)
         {
-            int[] arr = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
-            gb.Add(Tuple.Create(arr[0], arr[1]));
+          continue;
         }
-        return gb;
-    }
 
-    static private Tuple<int, int> getMinMaxListSize(Dictionary<int, LinkedList<int>> m)
-    {
-        int min = int.MaxValue;
-        int max = int.MinValue;
+        int sizeA = listA.Count;
+        int sizeB = listB.Count;
 
-        foreach (var e in m)
+        var listSmall = (sizeA < sizeB ? listA : listB);
+        var listLarge = (sizeA >= sizeB ? listA : listB);
+
+        foreach (int i in listSmall)
         {
-            int size = e.Value.Count;
-            if (size < min) min = size;
-            if (size > max) max = size;
+          m[i] = listLarge;
+          listLarge.AddFirst(i);
         }
 
-        return Tuple.Create(min, max);
+        continue;
+      }
+
+      int valueToInsert = (hasA ? b : a);
+      var insertList = m[hasA ? a : b];
+
+      insertList.AddFirst(valueToInsert);
+      m[valueToInsert] = insertList;
     }
 
-    static private Tuple<int, int> componentsInGraph(List<Tuple<int, int>> gb)
-    {
-        var m = new Dictionary<int, LinkedList<int>>();
+    return getMinMaxListSize(m);
+  }
 
-        gb.ForEach(t =>
-        {
-            var a = t.Item1;
-            var b = t.Item2;
-
-            bool hasA = m.ContainsKey(a);
-            bool hasB = m.ContainsKey(b);
-
-            if (!hasA && !hasB)
-            {
-                var l = new LinkedList<int>(new int[]{ a, b });
-
-                m.Add(a, l);
-                m.Add(b, l);
-
-                return;
-            }
-
-            if (hasA && hasB)
-            {
-                var la = m[a];
-                var lb = m[b];
-
-                if (la == lb) return;
-
-                int sizeA = la.Count;
-                int sizeB = lb.Count;
-
-                var listSmall = (sizeA < sizeB ? la : lb);
-                var listLarge = (sizeA >= sizeB ? la : lb);
-
-                foreach (int i in listSmall)
-                {
-                    m[i] = listLarge;
-                    listLarge.AddFirst(i);
-                }
-
-                return;
-            }
-
-            int valueToInsert = (hasA ? b : a);
-            var whereToInsert = m[hasA ? a : b];
-
-            whereToInsert.AddFirst(valueToInsert);
-            m[valueToInsert] = whereToInsert;
-        });
-
-        return getMinMaxListSize(m);
-    }
-
-    static void Main(string[] args)
-    {
-        var result = componentsInGraph(readData());
-        Console.WriteLine("{0} {1}", result.Item1, result.Item2);
-    }
+  static void Main(string[] args)
+  {
+    var result = componentsInGraph(readData());
+    Console.WriteLine($"{result.Item1} {result.Item2}");
+  }
 }
