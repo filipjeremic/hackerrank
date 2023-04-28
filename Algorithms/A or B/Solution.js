@@ -1,47 +1,5 @@
 'use strict';
 
-/*
-
-Time complexity: O(n)
-Space complexity: O(n)
-
-The logic:
-
-The numbers in this problem are extremely large and are handled as strings.
-The solution has two parts: mandatory and optimization.
-
-Mandatory part - here we attempt to transform A and B so that A | B = C with
-the minimum number of changes. For this we use a table which has every combination
-of A, B and C. So for each value of A and B (both 0..15, that is 0x0..0xF), we store
-how many changes are required and what are the resulting A and B to get A | B = C.
-The size of this table is 16x16x16 = 4096. We do this once because we don’t want to
-recalculate the same combinations. If this part fails, the numbers can’t be transformed
-with up to K changes and we print out -1.
-
-Optimization part - we use the remaining K to optimize. This part is simpler because
-if a bit in C is 0 there is nothing to optimize (because in this case, after the mandatory part,
-bit A and bit B are both 0, which is already optimal). When bit C is 1 there are 3 cases:
-
-| bit A | bit B |
-|   0   |   1   |
-|   1   |   0   |
-|   1   |   1   |
-
-We always want bit A to be 0 since A has priority. Therefore, bit B needs to be 1.
-In the first case, we already have those values and there is nothing to be done.
-In the second case we need to change both bit A and bit B, so two steps are required.
-In the third case all we need to do is set bit A to 0.
-Notice that this loop doesn’t end at the first failure because you can have a situation
-where K = 1 in case two. In this case you skip the transformation and continue checking
-because there might be a case three later on to ultimately use the last K.
-
-Important note - the output must be upper case to be accepted on HackerRank.
-
-In this solution (JavaScript) I utilized BigInt for printing output. Check out the other solutions
-for a base case (leading zeroes need to be skipped).
-
-*/
-
 process.stdin.resume();
 process.stdin.setEncoding('utf-8');
 
