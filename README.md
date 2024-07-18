@@ -1,8 +1,4 @@
-<p align="center">
-   <a href="https://www.hackerrank.com/kettu">
-      <h1 align="center">HackerRank</h1>
-   </a>
-</p>
+<h1 align="center"><a href="https://www.hackerrank.com/kettu">HackerRank</a></h1>
 
 Even though this repository is long overdue, I'm glad I finally made it. I've completed many more challenges than those listed here, so if you'd like me to upload a solution to a specific challenge, just send me a message. Chances are I've already done it. If not, I will try to solve and explain it as soon as possible.
 
