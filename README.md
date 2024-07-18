@@ -4,9 +4,9 @@
    </a>
 </p>
 
-Even though this repo is vastly belated I’m glad I finally made it. I did many more challenges than in this list so if you want me to upload the solution to a specific challenge just send me a message. Chances are I already did it. If not, I will try to solve and explain it asap.
+Even though this repository is long overdue, I'm glad I finally made it. I've completed many more challenges than those listed here, so if you'd like me to upload a solution to a specific challenge, just send me a message. Chances are I've already done it. If not, I will try to solve and explain it as soon as possible.
 
-If you have any questions/suggestions/criticism, spot an error etc. please don’t hesitate to contact me via:
+If you have any questions, suggestions, or criticisms, or if you spot an error, please don’t hesitate to contact me via:
 * Email: filipjeremic.dev@gmail.com
 * Discord: Focho#1982
 
