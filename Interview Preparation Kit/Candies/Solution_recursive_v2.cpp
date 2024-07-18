@@ -1,6 +1,6 @@
 // Note: this solution is similar to Solution_recursive_v1.cpp
-// The goal was to remove the ugly array bound checking
-// This is achieved by adding a "dummy" value on both sides of the initial array
+// The goal was to remove the inconvenient array bound checking
+// This is achieved by adding a "boundary" value on both sides of the initial array
 
 #include <bits/stdc++.h>
 
