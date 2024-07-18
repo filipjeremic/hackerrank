@@ -10,7 +10,7 @@ If you have any questions, suggestions, or criticisms, or if you spot an error, 
 * Email: filipjeremic.dev@gmail.com
 * Discord: Focho#1982
 
-Thank you for visiting the page! I hope you have fun and learn something!
+Thank you for visiting my page! I hope you have fun and learn something new!
 
 # Solution list
 
