@@ -94,9 +94,9 @@ static void minimizeA(int &k, std::vector<bool> &aBitVector,
 
 [[nodiscard]]
 static std::optional<std::pair<std::string, std::string>>
-a_or_b(int k, const std::string_view aHexString,
-       const std::string_view bHexString,
-       const std::string_view cHexString) noexcept {
+aOrB(int k, const std::string_view aHexString,
+     const std::string_view bHexString,
+     const std::string_view cHexString) noexcept {
 
   std::vector<bool> aBitVector = hexStringToBitVector(aHexString);
   std::vector<bool> bBitVector = hexStringToBitVector(bHexString);
@@ -122,7 +122,7 @@ int main() {
 
     std::cin >> k >> a >> b >> c;
 
-    if (const auto result = a_or_b(k, a, b, c)) {
+    if (const auto result = aOrB(k, a, b, c)) {
       std::cout << result.value().first << '\n'
                 << result.value().second << std::endl;
     } else {
