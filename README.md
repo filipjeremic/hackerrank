@@ -10,7 +10,7 @@ Thank you for visiting my page! I hope you have fun and learn something new!
 
 # Solution list
 
-|  #  | Problem | Explanation | Solution |
+|  #  | Problem | Explanation | Solutions |
 |  -  | ------- | -------- | --------- |
 | 1 | [Queue using Two Stacks](https://www.hackerrank.com/challenges/queue-using-two-stacks/problem) | [Link](data-structures/queue-using-two-stacks/README.md) | [C#](data-structures/queue-using-two-stacks/Solution.cs) \| [C++](data-structures/queue-using-two-stacks/Solution.cpp) \| [Go](data-structures/queue-using-two-stacks/solution.go) \| [Java](data-structures/queue-using-two-stacks/Solution.java) \| [JavaScript](data-structures/queue-using-two-stacks/Solution.js) \| [Python3](data-structures/queue-using-two-stacks/solution.py) |
 | 2 | [Candies](https://www.hackerrank.com/challenges/candies/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dynamic-programming) | [Link](interview-preparation-kit/candies/README.md) | [C#](interview-preparation-kit/candies/Solution.cs) \| [C++ iterative](interview-preparation-kit/candies/Solution-iterative.cpp) \| [C++ recursive v1](interview-preparation-kit/candies/Solution-recursive-v1.cpp) \| [C++ recursive v2](interview-preparation-kit/candies/Solution-recursive-v2.cpp) \| [Go](interview-preparation-kit/candies/solution.go) \| [Java](interview-preparation-kit/candies/Solution.java) \| [JavaScript](interview-preparation-kit/candies/Solution.js) \| [Python3](interview-preparation-kit/candies/solution.py) |
